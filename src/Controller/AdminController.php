@@ -61,7 +61,7 @@ class AdminController extends AbstractController
             // Le User connecté
             // Active à false
             $post->setUser($this->getUser());
-            dd($this->getUser());
+            //dd($this->getUser());
             $post->setActive(false);
 
             $em = $this->getDoctrine()->getManager();
@@ -72,6 +72,7 @@ class AdminController extends AbstractController
 
         return $this->render('admin/post/add.html.twig', [
             'form' => $form->createView(),
+            'bg_image' => 'home-bg.jpg'
         ]);
     }
 

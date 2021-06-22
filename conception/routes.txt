@@ -1,0 +1,22 @@
+*************************
+    Liste des routes
+*************************
+
+Name                            Url                             Fonctionnalité
+=================================================================================================
+app_login                       /login                          Page de login
+app_logout                      /logout                         logout
+app_forgot_password_request     /reset-password                 Réinitialisation du password
+app_check_email                 /reset-password/check-email     Envoi du mail de reset
+app_reset_password              /reset-password/reset/{token}   Reset du password
+app_register                    /register                       Page de register
+app_verify_email                /verify/email                   Vérification depuis le mail
+page_about                      /about                          Page à propos
+page_contact                    /contact                        Page de contact
+home                            /                               Page d'accueil
+post_view                       /post/{id}                      Page d'un article détaillé
+admin_home                      /admin                          Page d'accueil du BO
+category_add                    /category/add                   Page de création d'une catégorie
+post_add                        /post/add                       Page de création d'un article
+
+

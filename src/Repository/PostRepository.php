@@ -19,6 +19,35 @@ class PostRepository extends ServiceEntityRepository
         parent::__construct($registry, Post::class);
     }
 
+    public function findOldPosts(int $nb = 2): array
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            //'SELECT p.id, p.title, p.createdAt
+            'SELECT p
+            FROM App\Entity\Post p
+            WHERE p.active = :status
+            ORDER BY p.createdAt ASC'
+        )
+        ->setParameter('status', true)
+        ->setMaxResults($nb)
+        ;
+        return $query->getResult();
+    }
+
+    public function findLastPosts(int $nb = 2)
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.active = :active')
+            ->setParameter('active', true)
+            ->orderBy('p.createdAt', 'DESC')
+            ->setMaxResults($nb)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     // /**
     //  * @return Post[] Returns an array of Post objects
     //  */
