@@ -6,17 +6,17 @@
         <!-- Main Content-->
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-md-12 col-lg-9 col-xl-10">
+                <div class="col-md-12 col-lg-9 col-xl-9">
                     
-                    {% for post in posts %}
+                    {% for post in lastposts %}
 
                         <!-- Post preview-->
                         <div class="post-preview">
                             <a href="{{ path("post_view", {slug: post.slug}) }}">
                                 <h2 class="post-title">{{ post.title }}</h2>
                                 <img src="{{ post.image }}" alt="" style="width: 100%">
-                                <h3 class="post-subtitle">{{ post.content | u.truncate(150, '...') | raw }}</h3>
                             </a>
+                            <h3 class="post-subtitle">{{ post.content | u.truncate(150, '...') | raw }}</h3>
                             <p class="post-meta">
                                 Ecrit par <a href="#!">{{ post.user.email }}</a>
                                 {{ post.createdAt | ago }} -
@@ -31,9 +31,9 @@
                     <!-- Pager-->
                     <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
                 </div>
-                <div class="col-md-12 col-lg-3 col-xl-2">
-                    Sidebar
-                </div>
+                
+                {{ include('shared/_sidebar.html.twig') }}
+                
             </div>
         </div>
 {% endblock %}

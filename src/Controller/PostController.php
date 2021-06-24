@@ -15,12 +15,14 @@ class PostController extends AbstractController
      */
     public function home(PostRepository $postRepository): Response
     {
-        $posts = $postRepository->findAll();
-        //dd($posts);
+        //$posts = $postRepository->findAll();
+        $lastposts = $postRepository->findLastPosts(3);
+        $oldposts = $postRepository->findOldPosts();
 
         return $this->render('post/index.html.twig', [
             'bg_image' => 'home-bg.jpg',
-            'posts' => $posts,
+            'lastposts' => $lastposts,
+            'oldposts' => $oldposts,
         ]);
     }
 
@@ -28,12 +30,15 @@ class PostController extends AbstractController
      * ---Route("/post/{id}", name="post_view", methods={"GET"}, requirements={"id"="\d+"})
      * @Route("/post/{slug}", name="post_view", methods={"GET"})
      */
-    public function view(Post $post): Response
+    public function view(Post $post, PostRepository $postRepository): Response
     {
         //dd($post);
+        $oldposts = $postRepository->findOldPosts();
+
         return $this->render('post/view.html.twig', [
             'post' => $post,
-            'bg_image' => $post->getImage()
+            'bg_image' => $post->getImage(),
+            'oldposts' => $oldposts,
         ]);
     }
 

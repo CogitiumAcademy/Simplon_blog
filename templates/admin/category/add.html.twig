@@ -1,10 +1,20 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/sbadmin.html.twig' %}
 
 {% block title %}Ajouter une catégorie{% endblock %}
 
 {% block body %}
-<div class="example-wrapper">
-    <h1>Ajout d'une catégorie</h1>
-    {{ form(form) }}
-</div>
+    <main>
+        <div class="container-fluid px-4">
+            <h1 class="mt-4">Dashboard</h1>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item active">Dashboard</li>
+            </ol>
+
+            <div class="example-wrapper">
+                <h1>Ajout d'une catégorie</h1>
+                {{ form(form) }}
+            </div>
+
+        </div>
+    </main>
 {% endblock %}

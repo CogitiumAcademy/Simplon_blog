@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Admin;
 
 use App\Entity\Post;
 use App\Form\PostType;
@@ -20,29 +20,6 @@ class AdminController extends AbstractController
     {
         return $this->render('admin/index.html.twig', [
             'controller_name' => 'AdminController',
-        ]);
-    }
-
-    /**
-     * @Route("/category/add", name="category_add")
-     */
-    public function addCategory(Request $request): Response
-    {
-        $category = new Category();
-        //dd($category);
-        $form = $this->createForm(CategoryType::class, $category);
-        $form->handleRequest($request);
-        
-        if ($form->isSubmitted() && $form->isValid()) {
-            //dd($category);
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($category);
-            $em->flush();
-            return $this->redirectToRoute('admin_home');
-        }
-
-        return $this->render('admin/category/add.html.twig', [
-            'form' => $form->createView(),
         ]);
     }
 
@@ -73,6 +50,16 @@ class AdminController extends AbstractController
         return $this->render('admin/post/add.html.twig', [
             'form' => $form->createView(),
             'bg_image' => 'home-bg.jpg'
+        ]);
+    }
+
+    /**
+     * @Route("/admin/test", name="admin_test")
+     */
+    public function test(): Response
+    {
+        return $this->render('admin/test.html.twig', [
+            'controller_name' => 'AdminController',
         ]);
     }
 
