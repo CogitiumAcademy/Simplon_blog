@@ -94,10 +94,11 @@
             let activate = document.querySelectorAll("[type=checkbox]")
             //console.log(activate)
             for(let button of activate) {
-                //console.log(button)
+                console.log(button)
                 button.addEventListener("click", function(){
-                    //alert("Click")
+                    alert("Click")
                     let xmlhttp = new XMLHttpRequest
+                    console.log(this.dataset.id)
                     xmlhttp.open("get", `/admin/post/activate/${this.dataset.id}`)
                     xmlhttp.send()
                 })
