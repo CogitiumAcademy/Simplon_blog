@@ -32,6 +32,7 @@ class PostController extends AbstractController
      */
     public function view(Post $post, PostRepository $postRepository): Response
     {
+        //phpinfo();
         //dd($post);
         $oldposts = $postRepository->findOldPosts();
 
