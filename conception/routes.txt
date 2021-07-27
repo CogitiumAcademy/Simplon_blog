@@ -18,5 +18,5 @@ post_view                       /post/{id}                      Page d'un articl
 admin_home                      /admin                          Page d'accueil du BO
 category_add                    /category/add                   Page de création d'une catégorie
 post_add                        /post/add                       Page de création d'un article
-
+ 
 
