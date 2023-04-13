@@ -92,9 +92,9 @@
         window.onload = () => {
             //console.log("Load !!!!")
             let activate = document.querySelectorAll("[type=checkbox]")
-            //console.log(activate)
+            console.log(activate)
             for(let button of activate) {
-                console.log(button)
+                //console.log(button)
                 button.addEventListener("click", function(){
                     alert("Click")
                     let xmlhttp = new XMLHttpRequest
@@ -105,8 +105,11 @@
             }
 
             let btdeletes = document.querySelectorAll(".modal-trigger")
+            //console.log(btdeletes)
             for(let btdelete of btdeletes) {
+                //console.log(btdelete)
                 btdelete.addEventListener("click", function(){
+                    //alert("Click")
                     document.querySelector(".modal-footer a").href=`/admin/post/delete/${this.dataset.id}`
                     document.querySelector(".modal-body").innerText = `Etes-vous sûr de vouloir supprimer l'article "${this.dataset.title}"`
                 })
